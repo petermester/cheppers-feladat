@@ -1,17 +1,34 @@
+First you need to [install Lando](https://docs.lando.dev/basics/installation.html).
+
 # Steps to install site without database dump
 
-lando start
-lando composer install
-lando drush site:install cheppers_profile
-lando drush cr
-generate dummy content: lando drush genc 20
-lando drush cr
-login reset with lando drush uli
+1.) lando start
 
+2.) lando composer install
+
+3.) use `lando drush site:install --existing-config` or `lando drush site:install cheppers_profile` to install profile
+
+4.) lando drush cr
+
+5.) generate dummy content: `lando drush genc 20`
+
+6.) lando drush cr
+
+login reset with `lando drush uli`
+
+
+
+# Steps to install this configuration on another sites
+
+1.) Copy web/profiles/cheppers_profile to the same folder in the new site
+
+2.) Add this line to the end of settings.php of the destination site
+```
+$settings['config_sync_directory'] = 'profiles/cheppers_profile/config/sync';
+```
+3.) use steps from the beginning
 
 # Steps to install site with database dump
-
-Lando offical documentation page for install lando: https://docs.lando.dev/basics/installation.html
 
 1.) Start app from the folder of the app in terminal with "lando start" command
 
@@ -20,15 +37,6 @@ Lando offical documentation page for install lando: https://docs.lando.dev/basic
 3.) Import configurations (from config/sync) with this command: "lando drush config:import"
 
 Lando default database connection dbname/user/passwd = drupal9/drupal9/drupal9 port = 3306 database host = database
-
-# Steps to install this configuration on another sites
-
-Copy web/profiles/cheppers_profile to the same folder in the new site
-Add this line to the end of settings.php of the destination site
-```
-$settings['config_sync_directory'] = 'profiles/cheppers_profile/config/sync';
-```
-use steps to install without database dump
 
 # Composer template for Drupal projects
 
