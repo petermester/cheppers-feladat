@@ -1,5 +1,7 @@
 # Install feature without database via select cheppers_profile profile on graphical install, or install site via drush command: "lando drush site:install cheppers_profile"
 
+Lando default database connection dbname/user/passwd = drupal9/drupal9/drupal9 port = 3306 database host = database
+
 # Gegerate dummy content via "lando drush genc 20"
 
 # Lando usage basics
