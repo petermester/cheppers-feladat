@@ -1,3 +1,11 @@
+# Lando usage basics
+
+Lando offical documentation page for install lando: https://docs.lando.dev/basics/installation.html
+
+1.) Start app from the folder of the app in terminal with "lando start" command
+
+2.) Import database dump with this command: "lando db-import cheppers-feladat-11-13.sql.gz --host database"
+
 # Composer template for Drupal projects
 
 [![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=9.x)](https://travis-ci.org/drupal-composer/drupal-project)
