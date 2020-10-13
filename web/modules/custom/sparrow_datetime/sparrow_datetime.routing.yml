@@ -1,0 +1,7 @@
+sparrow_datetime.example:
+  path: '/sparrow-datetime/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\sparrow_datetime\Controller\SparrowDatetimeController::build'
+  requirements:
+    _permission: 'access content'
