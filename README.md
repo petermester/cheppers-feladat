@@ -1,3 +1,7 @@
+# Install feature without database via select cheppers_profile profile on graphical install, or install site via drush command: "lando drush site:install cheppers_profile"
+
+# Gegerate dummy content via "lando drush genc 20"
+
 # Lando usage basics
 
 Lando offical documentation page for install lando: https://docs.lando.dev/basics/installation.html
@@ -5,6 +9,9 @@ Lando offical documentation page for install lando: https://docs.lando.dev/basic
 1.) Start app from the folder of the app in terminal with "lando start" command
 
 2.) Import database dump with this command: "lando db-import cheppers-feladat-11-13.sql.gz --host database"
+
+3.) Import configurations (from config/sync) with this command: "lando drush config:import"
+
 
 # Composer template for Drupal projects
 

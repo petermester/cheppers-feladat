@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Sparrow Datetime Module
+ *
+ */
+
+ /**
+ * Implements hook_theme().
+ */
+function sparrow_datetime_theme() {
+  return array(
+    'sparrow_datetime_formatter' => array(
+      'variables' => array('date' => NULL, 'diff' => NULL),
+      'template' => 'sparrow_datetime_formatter',
+    ),
+  );
+}
