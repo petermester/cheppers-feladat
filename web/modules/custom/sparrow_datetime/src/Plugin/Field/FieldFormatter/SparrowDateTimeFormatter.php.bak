@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains \Drupal\youtube_formatter\Plugin\field\formatter\YouTubeLinkFormatter.
+ */
+
+namespace Drupal\sparrow_datetime\Plugin\Field\FieldFormatter;
+
+use Drupal\Core\Field\FormatterBase;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Datetime\Element\Datetime;
+// use Drupal\Core\Datetime\DrupalDateTime;
+// use Drupal\Component\Datetime;
+use Drupal\Component\Datetime\DateTimePlus;
+
+
+
+/**
+ * Plugin implementation of the 'Sparrow_datetime_formatter' formatter.
+ *
+ * @FieldFormatter(
+ *   id = "Sparrow_datetime_formatter",
+ *   label = @Translation("Sparrow Datetime Formatter"),
+ *   field_types = {
+ *     "datetime"
+ *   }
+ * )
+ */
+class SparrowDateTimeFormatter extends FormatterBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function viewElements(FieldItemListInterface $items, $langcode) {
+    $elements = array();
+
+    $now = strtotime("now");
+
+    foreach ($items as $delta => $item) {
+      $value = $item->getValue()["value"];
+      $date = strtotime($value);
+
+
+
+      $today = DateTimePlus::createFromTimestamp($now);
+      $load = DateTimePlus::createFromTimestamp($date);
+      $diff = $today->diff($load);
+      dpm($diff);
+
+      $elements[$delta] = array(
+        '#theme' => 'sparrow_datetime_formatter',
+        '#diff' => $diff,
+        '#date' => $date,
+      );
+
+    }
+
+    return $elements;
+  }
+
+}
